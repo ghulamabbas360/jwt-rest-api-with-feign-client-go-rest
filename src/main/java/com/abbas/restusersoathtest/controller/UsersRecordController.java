@@ -6,11 +6,13 @@ import com.abbas.restusersoathtest.dto.Users;
 import com.abbas.restusersoathtest.exception.ThirdPartyApiNotAvailbleException;
 import com.abbas.restusersoathtest.service.UsersRecordServiceImpl;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/v1")
 public class UsersRecordController {
 
     final UsersRecordServiceImpl usersRecordService;
@@ -20,17 +22,17 @@ public class UsersRecordController {
     }
 
 
-    @GetMapping("/api/v3/users")
+    @GetMapping("/users")
     public List<Users> getAllUsers() throws ThirdPartyApiNotAvailbleException {
         return usersRecordService.getAllUsers();
     }
 
-    @GetMapping("/api/v3/posts")
+    @GetMapping("/posts")
     public List<Posts> getAllPosts() throws ThirdPartyApiNotAvailbleException {
         return usersRecordService.getAllPosts();
     }
 
-    @GetMapping("/api/v3/comments")
+    @GetMapping("/comments")
     public List<Comment> getAllComments() throws ThirdPartyApiNotAvailbleException {
         return usersRecordService.getAllComments();
     }
